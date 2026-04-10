@@ -17,7 +17,7 @@
         <section>
             <div id="menu"><button class="btn-menu"><img class="menu-img" src="../img/icons/menu.png" alt="Menu" height="20"></button></div> 
 
-            <div class="logo"><a href="../html/pagina-principal.html"><img class="logo-img" src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
+            <div class="logo"><a href="../html/pagina-principal.php"><img class="logo-img" src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
 
             <div class="pesquisa-icone">
                 <div class="input-pesquisar">
@@ -27,7 +27,7 @@
                     </form>
                 </div>
 
-                <div class="icone-info"><a  class="icon-usuario" href="../html/login.html"><img class="user-icon" src="../img/icons/usuario-icon.png" alt="Icone de login" height="50"></a></div>
+                <div class="icone-info"><a  class="icon-usuario" href="../html/login.php"><img class="user-icon" src="../img/icons/usuario-icon.png" alt="Icone de login" height="50"></a></div>
             </div>
         </section>
         <hr>
@@ -38,7 +38,7 @@
         <section>
             <div class="menu-logo">
                 <div id="menu-aside" class="menu-aside"><button><img class="menu-img" src="../img/icons/menu.png" alt="Menu" height="20"></button></div>
-                <div class="logo-aside"><a href="../html/pagina-principal.html"><img src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
+                <div class="logo-aside"><a href="../html/pagina-principal.php"><img src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
             </div>
             <div class="redes-aside">
                 <h3>Redes Sociais</h3>
@@ -55,8 +55,8 @@
                 <h3>Perfil do Usuário</h3>
                 <nav>
                     <ul class="ul-aside">
-                        <li><a href="../html/cadastro.html">Cadastrar-se</a></li>
-                        <li><a href="../html/login.html">Login</a></li>
+                        <li><a href="../html/cadastro.php">Cadastrar-se</a></li>
+                        <li><a href="../html/login.php">Login</a></li>
                     </ul>
                 </nav>
             </div>
@@ -85,7 +85,7 @@
                 <input type="reset" value="Limpar dados"></div>
             </form>
             <br>
-            <p>Já tem uma conta? <a href="../html/login.html">Faça o login.</a></p>
+            <p>Já tem uma conta? <a href="../html/login.php">Faça o login.</a></p>
         </section>
     </main>
  <!--Rodapé-->

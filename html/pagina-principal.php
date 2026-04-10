@@ -17,7 +17,7 @@
         <section>
             <div id="menu"><button class="btn-menu"><img class="menu-img" src="../img/icons/menu.png" alt="Menu" height="20"></button></div> 
 
-            <div class="logo"><a href="../html/pagina-principal.html"><img class="logo-img" src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
+            <div class="logo"><a href="../html/pagina-principal.php"><img class="logo-img" src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
 
             <div class="pesquisa-icone">
                 <div class="input-pesquisar">
@@ -38,7 +38,7 @@
         <section>
             <div class="menu-logo">
                 <div id="menu-aside"><button class="btn-menu"><img class="menu-img" src="../img/icons/menu.png" alt="Menu" height="20"></button></div>
-                <div class="logo-aside"><a href="../html/pagina-principal.html"><img src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
+                <div class="logo-aside"><a href="../html/pagina-principal.php"><img src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
             </div>
             <div class="redes-aside">
                 <h3>Redes Sociais</h3>
@@ -55,8 +55,8 @@
                 <h3>Perfil do Usuário</h3>
                 <nav>
                     <ul class="ul-aside">
-                        <li><a href="../html/cadastro.html">Cadastrar-se</a></li>
-                        <li><a href="../html/login.html">Login</a></li>
+                        <li><a href="../html/cadastro.php">Cadastrar-se</a></li>
+                        <li><a href="../html/login.php">Login</a></li>
                     </ul>
                 </nav>
             </div>
@@ -70,13 +70,13 @@
             <article class="stand-principal">
                 <div>
                     <div class="artigos">
-                        <a href="../html/artigo.html"><img class="img-artigo-principal" src="../img/img-artigos/width_550.png" alt="Imagem do artigo"></a>
+                        <a href="../html/artigo.php"><img class="img-artigo-principal" src="../img/img-artigos/width_550.png" alt="Imagem do artigo"></a>
                         <p class="categorias-principal">PC</p>
                         <hr>
                     </div>
                 </div>
                 <div class="artigo-desc">
-                    <a class="overlay-artigo" href="../html/artigo.html"></a>
+                    <a class="overlay-artigo" href="../html/artigo.php"></a>
                     <div class="descricao-artigo">
                         <h1>Cyberpunk 2077: Phantom Liberty - A Expansão que Redefiniu o Jogo</h1>
                         <p class="descricao">Após anos de atualizações e melhorias, Cyberpunk 2077 finalmente entrega a experiência que os fãs esperavam. A nova expansão Phantom Liberty não apenas adiciona conteúdo, mas redefine completamente a experiência de jogo.</p>
