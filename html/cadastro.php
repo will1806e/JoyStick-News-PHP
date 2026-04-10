@@ -67,19 +67,19 @@
         <section>
             <h1>Faça seu cadastro:</h1>
             <br>
-            <form class="login-forms" action="" method="post">
+            <form class="login-forms" action="cadastrar.php" method="post">
                 <div class="login-forms">
                     <div class="login-inputs"><label for="input-nome">Nome Completo: </label>
-                    <input class="input" type="text" placeholder="Digite seu nome completo..." id="input-nome"></div>
+                    <input class="input" type="text" placeholder="Digite seu nome completo..." id="input-nome" name="nome"></div>
 
                     <div class="login-inputs"><label for="input-email">E-mail: </label>
-                    <input class="input" type="email" placeholder="Digite seu e-mail..." id="input-email"></div>
+                    <input class="input" type="email" placeholder="Digite seu e-mail..." id="input-email" name="email"></div>
 
                     <div class="login-inputs"><label for="input-usuario">Nome de usuário:</label>
-                    <input class="input" type="text" placeholder="Digite seu nome de usuário..." id="input-usuario"></div>
+                    <input class="input" type="text" placeholder="Digite seu nome de usuário..." id="input-usuario" name="nome_usuario"></div>
 
                     <div class="login-inputs"><label for="input-senha">Senha:</label>
-                    <input class="input" type="password" placeholder="Digite sua senha..." id="input-senha"></div>
+                    <input class="input" type="password" placeholder="Digite sua senha..." id="input-senha" name="senha"></div>
                 </div>
                 <div class="botoes-login"><input type="button" value="Cadastrar-se">
                 <input type="reset" value="Limpar dados"></div>
