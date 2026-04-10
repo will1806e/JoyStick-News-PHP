@@ -1,0 +1,82 @@
+/*Cadastro*/
+
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+main > section{
+    display: flex;
+    height: 100%;
+    width: auto;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center;
+}
+
+main > section > h1{
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.login-forms{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.login-inputs{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+}
+
+.input{
+    border: none;
+    outline: 1px solid gray;
+    border-radius: 7px;
+    background-color: rgb(224, 224, 224);
+    padding: 6px;
+    width: 15rem;
+}
+
+.input:focus{
+    outline: 2px solid gray;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.botoes-login{
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.login-aling{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.login-inputs > label{
+    padding-bottom: 0.5rem;
+}
+
+main > section > p > a{
+    text-decoration: none;
+    color: rgba(5, 40, 196, 0.884);
+}
+
+main > section > p{
+    padding-bottom: 3rem;
+}
+
+main > section > p > a:hover{
+    text-decoration: underline;
+}
