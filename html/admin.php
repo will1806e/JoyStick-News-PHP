@@ -48,7 +48,9 @@
 
     <!--Conteúdo Principal-->
     <main>
-
+        <div id="div_titulo">
+            <h1>ÁREA ADMINISTRATIVA</h1>
+        </div>
     </main>
 
     <!--Rodapé-->
