@@ -1,128 +1,163 @@
+<?php
+session_start();
+require("../PHP/conexao.php");
+
+// Só admin pode acessar
+if (!isset($_SESSION['admin'])) {
+    header("Location: login.html");
+    exit;
+}
+?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - JoyStick News</title>
-    <link rel="shortcut icon" href="../img/joytstick_icon.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../CSS/style.css">
-    <link rel="stylesheet" href="../CSS/cadastro.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Usuários</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+      font-size: 14px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .input-group input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 5px rgba(79,70,229,0.4);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      opacity: 0.9;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <!--Cabeçalho-->
-    <header>
-        <section>
-            <div id="menu"><button class="btn-menu"><img class="menu-img" src="../img/icons/menu.png" alt="Menu" height="20"></button></div> 
 
-            <div class="logo"><a href="../html/pagina-principal.php"><img class="logo-img" src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
+  <div class="container">
+    <h2>Criar Conta</h2>
 
-            <div class="pesquisa-icone">
-                <div class="input-pesquisar">
-                    <form class="pesquisar" action="" method="post">
-                        <img class="lupa"  src="../img/icons/procurar.png" alt="Lupa para pesquisa">
-                        <input type="search" id="pesquisa" placeholder="Buscar Notícias...">
-                    </form>
-                </div>
+    <form action="../PHP/cadastrar.php" method="POST">
+      <div class="input-group">
+        <label>Nome Completo</label>
+        <input type="text" name="nome" placeholder="Digite seu nome" required>
+      </div>
 
-                <div class="icone-info"><a  class="icon-usuario" href="../html/login.php"><img class="user-icon" src="../img/icons/usuario-icon.png" alt="Icone de login" height="50"></a></div>
-            </div>
-        </section>
-        <hr>
-        <div class="overlay" hidden></div>
-    </header>
-<!--Menu Lateral-->
-    <aside id="aside" class="aside" hidden>
-        <section>
-            <div class="menu-logo">
-                <div id="menu-aside" class="menu-aside"><button><img class="menu-img" src="../img/icons/menu.png" alt="Menu" height="20"></button></div>
-                <div class="logo-aside"><a href="../html/pagina-principal.php"><img src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-header"></a></div>
-            </div>
-            <div class="redes-aside">
-                <h3>Redes Sociais</h3>
-                <nav>
-                    <ul class="ul-aside">
-                    <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
-                    <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
-                    <li><a href="https://www.tiktok.com" target="_blank">TikTok</a></li>
-                    <li><a href="https://discord.com" target="_blank">Discord</a></li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="usuario-aside">
-                <h3>Perfil do Usuário</h3>
-                <nav>
-                    <ul class="ul-aside">
-                        <li><a href="../html/cadastro.php">Cadastrar-se</a></li>
-                        <li><a href="../html/login.php">Login</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </section>
-    </aside>
- <!--Conteúdo Principal-->
-    <main>
-        <section>
-            <h1>Faça seu cadastro:</h1>
-            <br>
-            <form class="login-forms" action="cadastrar.php" method="post">
-                <div class="login-forms">
-                    <div class="login-inputs"><label for="input-nome">Nome Completo: </label>
-                    <input class="input" type="text" placeholder="Digite seu nome completo..." id="input-nome" name="nome"></div>
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="Digite seu email" required>
+      </div>
 
-                    <div class="login-inputs"><label for="input-email">E-mail: </label>
-                    <input class="input" type="email" placeholder="Digite seu e-mail..." id="input-email" name="email"></div>
+      <div class="input-group">
+        <label>Nome de Usuário</label>
+        <input type="text" name="nome_usuario" placeholder="Escolha um nome de usuário" required>
+      </div>
 
-                    <div class="login-inputs"><label for="input-usuario">Nome de usuário:</label>
-                    <input class="input" type="text" placeholder="Digite seu nome de usuário..." id="input-usuario" name="nome_usuario"></div>
+      <div class="input-group">
+        <label>Senha</label>
+        <input type="password" name="senha" placeholder="Digite sua senha" required>
+      </div>
+      <div class="input-group">
+        <label>Ocupação</label>
+        <select name="ocupacao" required>
+          <option value="">Selecione a ocupação</option>
+          <option value="Gerente">Gerente</option>
+          <option value="Vendedor">Vendedor</option>
+          <option value="Suporte">Suporte</option>
+          <option value="Financeiro">Financeiro</option>
+          <option value="TI">TI</option>
+        </select><br><br>
+      </div>
 
-                    <div class="login-inputs"><label for="input-senha">Senha:</label>
-                    <input class="input" type="password" placeholder="Digite sua senha..." id="input-senha" name="senha"></div>
-                </div>
-                <div class="botoes-login"><input type="button" value="Cadastrar-se">
-                <input type="reset" value="Limpar dados"></div>
-            </form>
-            <br>
-            <p>Já tem uma conta? <a href="../html/login.php">Faça o login.</a></p>
-        </section>
-    </main>
- <!--Rodapé-->
-    <footer>
-        <hr>
-        <br>
-        <section>
-            <div class="logo-rodape">
-                <img class="logo-img" src="../img/icons/logotipo_sem_fundo.png" alt="Icone do Site" id="icone-footer">
-                <p>Seu portal de notícias sobre games, reviews e novidades do mundo gamer.</p>
-            </div>
-            <div class="footer-redes">
-                <h3>Redes Sociais</h3>
-                <nav>  
-                    <li class="redes-nav"><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
-                    <li class="redes-nav"><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
-                    <li class="redes-nav"><a href="https://www.tiktok.com" target="_blank">TikTok</a></li>
-                    <li class="redes-nav"><a href="https://discord.com" target="_blank">Discord</a></li>
-                </nav>
-            </div>
-            <div class="footer-contato">
-                <h3>Entre em contato</h3>
-                <form class="form-rodape" action="" method="post">
-                    <label for="nome-contato">Nome:</label>
-                    <input type="text" id="nome-contato" placeholder="Digite seu nome...">
-                    <label for="input-contato">E-mail:</label>
-                    <input class="email-footer" type="email" placeholder="Digite seu E-mail..." id="input-contato">
-                    <label for="textarea-mensagem">Mensagem:</label>
-                    <textarea id="textarea-mensagem" rows="1"></textarea>
-                    <input type="button" value="Enviar">
-                </form>
-            </div>
-        </section>
-        <p class="direitos-reservador"> &copy; JoyStick News - 2025 Todos os direitos reservados.</p>
-        <hr>
-        <br>
-    </footer>
-    <script src="../JavaScript/script.js"></script>
+      <button class="btn" type="submit">Cadastrar</button>
+    </form>
+
+    <div class="footer"><a href="login.php">Voltar</a>
+    </div>
+  </div>
+
 </body>
 </html>

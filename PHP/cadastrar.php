@@ -6,16 +6,17 @@
     $email = $_POST["email"];
     $nome_usuario = $_POST["nome_usuario"];
     $senha = $_POST["senha"];
+    $ocupacao = $_POST["ocupacao"];
 
     //Consulta SQL.
-    $sql = "INSERT INTO usuario (nome, email, nome_usuario, senha) VALUES ($nome, $email, $nome_usuario, $senha)";
+    $sql = "INSERT INTO usuario (nome, email, nome_usuario, senha, ocupacao) VALUES ('$nome', '$email', '$nome_usuario', '$senha', '$ocupacao')";
 
     //Faz a consulta SQL no banco.
     $resultado = mysqli_query($c, $sql);
 
     //Trata o resultado, trás o erro caso a query dê errado.
     if($resultado){
-        echo "Usuário cadastrado com sucesso!";
+        header("Location: listar.php");
     } else {
         echo "Erro: " . mysqli_error($c);
     }
