@@ -1,14 +1,14 @@
 <?php
-    //Inforações da conexao.
+    // dados da conexão com o banco
     $servidor = "localhost";
     $usuario = "root";
     $senha = "";
     $banco = "funcionarios";
 
-    //Variável que recebe a conexão do banco.
+    // tenta conectar
     $c = mysqli_connect($servidor, $usuario, $senha, $banco);
 
-    //Se a conexáo falhar irá passar o erro da conexão, e fechar ela.
+    // se não conectar, já para tudo e mostra o erro
     if (!$c) {
         die("Erro de conexão: " . mysqli_connect_error());
     }

@@ -1,23 +1,30 @@
 <?php
 session_start();
+// inicia a sessão
 
-// Proteção: só entra se estiver logado
+// só deixa entrar se for admin
 if (!isset($_SESSION['admin'])) {
     header("Location: ../html/login.php");
     exit;
 }
 
+// pega o nome do usuário logado
 $nome_usuario = $_SESSION['usuario'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
+<!-- config básica -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- título -->
 <title>Bem-vindo</title>
 
 <style>
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -25,23 +32,26 @@ $nome_usuario = $_SESSION['usuario'];
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* BODY */
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
 }
 
+/* CONTAINER */
 .container {
-    background: white;
     padding: 50px;
-    border-radius: 20px;
     text-align: center;
+    background: white;
+    border-radius: 20px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     animation: fadeIn 0.6s ease;
 }
 
+/* ANIMAÇÃO */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -53,71 +63,80 @@ body {
     }
 }
 
+/* TÍTULO */
 h1 {
-    color: #333;
     margin-bottom: 20px;
+    color: #333;
 }
 
+/* destaque do nome */
 span {
     color: #4f46e5;
     font-weight: bold;
 }
 
+/* texto */
 p {
     margin-bottom: 20px;
 }
 
-.btn {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, #4f46e5, #9333ea);
-    color: white;
-    text-decoration: none;
-}
-
-.logout {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background: #ef4444;
-    color: white;
-    text-decoration: none;
-}
-
+/* BOTÕES BASE */
+.btn,
+.logout,
 .add {
     display: inline-block;
     margin-top: 10px;
     padding: 10px 20px;
     border-radius: 10px;
-    background: #22c55e;
-    color: white;
     text-decoration: none;
+    color: white;
 }
 
-.logout:hover,
+/* variações */
+.btn {
+    background: linear-gradient(135deg, #4f46e5, #9333ea);
+}
+
+.add {
+    background: #22c55e;
+}
+
+.logout {
+    background: #ef4444;
+}
+
+/* hover geral */
 .btn:hover,
-.add:hover {
+.add:hover,
+.logout:hover {
     opacity: 0.9;
 }
-
 </style>
 
 </head>
+
 <body>
 
+<!-- caixa principal -->
 <div class="container">
+
+    <!-- mensagem de boas-vindas -->
     <h1>Bem-vindo ao site, <span><?php echo $nome_usuario; ?></span> 👋</h1>
 
+    <!-- texto -->
     <p>Seu login foi realizado com sucesso!</p>
 
+    <!-- ir para listagem de usuários -->
     <a class="btn" href="../PHP/listar.php">Ir para usuários</a>
     <br>
+
+    <!-- cadastrar novo funcionário -->
     <a class="add" href="../html/cadastro.php">Cadastrar funcionário</a>
     <br>
+
+    <!-- sair do sistema -->
     <a class="logout" href="../html/login.php">Sair</a>
+
 </div>
 
 </body>

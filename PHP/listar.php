@@ -1,13 +1,17 @@
 <?php
 session_start();
-require "conexao.php";
+// inicia a sessão pra controlar quem tá logado
 
-// Proteção de login
+require "conexao.php";
+// conexão com o banco
+
+// se não tiver logado, manda pro login
 if (!isset($_SESSION['usuario'])) {
     header("Location: ../html/login.php");
     exit;
 }
 
+// pega todos os usuários do banco
 $sql = "SELECT * FROM usuario";
 $resultado = mysqli_query($c, $sql);
 ?>
@@ -122,8 +126,15 @@ h2 {
             <td><?php echo $usuarios['ocupacao']; ?></td>
             <td>
                 <?php if (isset($_SESSION['admin'])) { ?>
-                    <a class="btn-delete" href="excluir.php?id=<?php echo $usuarios['id']; ?>" onclick="return confirm('Tem certeza?')">Excluir</a>
-                <?php } else { echo '-'; } ?>
+                    <!-- só admin vê o botão -->
+                    <a class="btn-delete" 
+                       href="excluir.php?id=<?php echo $usuarios['id']; ?>" 
+                       onclick="return confirm('Tem certeza?')">
+                       Excluir
+                    </a>
+                <?php } else { 
+                    echo '-'; // usuário comum não pode excluir
+                } ?>
             </td>
         </tr>
         <?php } ?>
