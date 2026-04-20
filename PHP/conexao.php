@@ -3,7 +3,7 @@
     $servidor = "localhost";
     $usuario = "root";
     $senha = "";
-    $banco = "joystick";
+    $banco = "funcionarios";
 
     //Variável que recebe a conexão do banco.
     $c = mysqli_connect($servidor, $usuario, $senha, $banco);

@@ -1,5 +1,4 @@
 <?php
-var_dump($_POST);
 session_start();
 require("conexao.php");
 
@@ -15,11 +14,6 @@ header("Location: ../html/bemvindo.php");
 exit;
 }
 
-
-
-
-
-
 $sql = "SELECT * FROM usuario WHERE nome_usuario = '$usuario' and senha = '$senha'";
 $resultado = mysqli_query($c, $sql);
 
@@ -33,7 +27,4 @@ if (mysqli_num_rows($resultado) > 0) {
     header("Location: ../html/bemvindonormal.php");
     exit;
 }
-    
-
-
 ?>
